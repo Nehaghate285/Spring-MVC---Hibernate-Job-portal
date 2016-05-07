@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Candidate View jobs</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+	function showDtls(drp) {
+
+		var d1 = drp.parentNode;
+		var d2 = d1.parentNode;
+		var d3 = d2.nextSibling.nextSibling;
+		var d4 = d3.childNodes[1];
+		var d5 = d4.nextSibling.nextSibling;
+
+		if (d4.style.display == "none") {
+			d4.setAttribute("style", "display:block;");
+			d5.setAttribute("style", "display:inline-grid;");
+		} else {
+			d4.setAttribute("style", "display:none;");
+			d5.setAttribute("style", "display:none;");
+
+		}
+
+		//document.createElement("div");
+
+	}
+	
+	
+		        
+</script>
+</head>
+<body>
+
+	
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Recruit.ed</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="/candidate_jobs.htm">View Jobs &nbsp;<span class="badge">
+						${jobs.size()}</span></a></li>
+						<li ><a href="edit_profile.htm">My Profile</a></li>
+											</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="./">Questions? Call us at
+								1-866-204-6764 <span class="sr-only">(current)</span>
+						</a></li>
+
+						<li>Welcome, Neha</li>
+
+						<li><a href="logout.htm" class="btn btn-info" role="button">Logout</a></li>
+
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+			<!--/.container-fluid -->
+		</nav>
+##<c:if test="${success == 'true'}">
+			
+	##		<h4 style="color: green">applied job !</h4>
+								
+		##	</c:if>
+		<div class="row">
+		<div data-role="main" class="ui-content">
+	
+		<form>
+      <input id="filterTable-input" data-type="search" placeholder="Search For Customers...">
+    </form>
+    		<table class="table table-striped" data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow"
+			 id="myTable" data-filter="true" data-input="#filterTable-input">
+				<thead>
+					<tr>
+						<th></th>
+						<th >JOB TITLE</th>
+						<th>JOB TYPE</th>
+						<th>JOB EXPERIENCE</th>
+						<th>LOCATION</th>
+						<th>COMPANY</th>
+						<th>POSTED ON</th>
+						<th >STATUS</th>
+						<th>ACTIONS</th>
+					</tr>
+				</thead>
+				<tbody>
+					#foreach ($job in $jobs)
+						<tr>
+							<td><button type="button" class="btn btn-default btn-xs"
+									aria-label="Left Align" onclick="showDtls(this)">
+									<span class="glyphicon glyphicon-triangle-bottom"
+										aria-hidden="true"></span>
+								</button></td>
+							<td>${job.title}</td>
+							<td>${job.type}</td>
+							<td>${job.experience}</td>
+							<td>${job.location}</td>
+							<td>${job.employer.username}</td>
+							<td>${job.postedOn}</td>
+							#*<c:if test="${job.jobStatus == 'closed' }">
+
+								<td style="color: red">Closed</td>
+							</c:if>*#
+							<td>
+								#if($job.candidateApplicationStatus)
+								$job.candidateApplicationStatus.toUpperCase()
+								#else
+								NOT APPLIED
+								#end
+							</td>
+							<td>
+							#if(${job.candidateApplicationStatus})
+							<a class="btn btn-info btn-xs" disabled role="button" 
+								href="candidate_apply_jobs.htm?jobId=${job.id}">Apply</a>
+								#else
+							<a class="btn btn-info btn-xs"  role="button" 
+								href="candidate_apply_jobs.htm?jobId=${job.id}">Apply</a>
+							#end
+							</td>
+						</tr>
+
+						<tr>
+							<td style="display: none;"></td>
+							<td colspan="7" style="display: none;">
+								<div class="row">
+								<div class="col-md-12"><h2>Job Title: ${job.title}</h2></div>
+
+									<div class="col-md-4">
+									<h3>Job Location:</h3>
+										${job.location}
+									</div>
+									
+									<div class="col-md-4">
+									<h3>Job Posted on Date:</h3>
+										${job.postedOn}
+										
+									</div>
+									
+									<div class="col-md-3">
+									<h3>Other details:</h3>
+									
+										<ul>
+										  <li>Job Experience : ${job.experience}</li>
+										  <li>Job Type : ${job.type}</li>
+										  <li>Job Status : ${job.status}</li>
+										 </ul>
+									</div>
+								
+									<div class="col-md-12">
+										<h3>Job Description:</h3>
+										${job.description}
+									</div>
+
+								</div>
+							</td>
+						</tr>
+					#end
+
+
+				</tbody>
+				</div>
+			</table>
+		</div>
+
+
+	</div>
+</body>
+</html>

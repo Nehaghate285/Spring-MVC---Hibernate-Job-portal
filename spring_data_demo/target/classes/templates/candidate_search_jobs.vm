@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Candidate View jobs</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Recruit.ed</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="viewjobscandidate.htm">View Jobs &nbsp;<span class="badge">
+						${sessionScope.noofjobs}</span></a></li>
+						<li ><a href="candidate_edit_profile.htm">My Profile</a></li>
+						<li ><a href="candidate_search_jobs.htm">Search Jobs</a></li>
+											</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="./">Questions? Call us at
+								1-866-204-6764 <span class="sr-only">(current)</span>
+						</a></li>
+
+						<li>Welcome, Neha</li>
+
+						<li><a href="logout.htm" class="btn btn-info" role="button">Logout</a></li>
+
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+			<!--/.container-fluid -->
+		</nav>
+		
+		
+		<div class = "row">
+		
+		
+		## search bar for searching jobs ajax if possible
+		
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<!--/.container-->
+		

@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Employer - Job Listing</title>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/javascript"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+	<style>
+	
+		.status{
+			width: 10px;
+		    height: 10px;
+		    border-radius: 12px;
+		    text-align: center;
+		    margin-left: 15px;
+		    margin-bottom: 5px;
+		}
+		.active{
+			background: #008000;
+		}
+		
+		.inactive{
+			background: #2995A7;
+		}
+		
+		.deleted{
+			background: #FF0000;
+		}
+	</style>
+	
+	<script type="text/javascript">
+	function showDtls(drp) {
+
+		var d1 = drp.parentNode;
+		var d2 = d1.parentNode;
+		var d3 = d2.nextSibling.nextSibling;
+		var d4 = d3.childNodes[1];
+		var d5 = d4.nextSibling.nextSibling;
+
+		if (d4.style.display == "none") {
+			d4.setAttribute("style", "display:block;");
+			d5.setAttribute("style", "display:inline-grid;");
+		} else {
+			d4.setAttribute("style", "display:none;");
+			d5.setAttribute("style", "display:none;");
+
+		}
+
+		//document.createElement("div");
+
+	}
+	
+	
+		        
+</script>
+
+
+</head>
+<body>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Recruit.ed</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="employer_post_job.htm">Post a Job</a></li>
+						##<li ><a href="listjobs.htm">List Jobs<span
+							##	class="badge">${jobs.size()}</span></a></li>
+							<li class="active"><a href="employer_jobs.htm">List Jobs &nbsp;<span
+								class="badge">${jobs.size()}</span></a></li>
+
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="./">Questions? Call us at
+								1-866-204-6764 <span class="sr-only">(current)</span>
+						</a></li>
+
+						<li>Welcome</li>
+
+						<li><a href="logout.htm" class="btn btn-info" role="button">Logout</a></li>
+
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+			<!--/.container-fluid -->
+		</nav>
+	
+<div class="row">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th></th>
+						<th>JOB TITLE</th>
+						<th>JOB TYPE</th>
+						<th>JOB EXPERIENCE</th>
+						<th>LOCATION</th>
+						<th>COMPANY</th>
+						<th>POSTED ON</th>
+						<th>STATUS</th>
+						<th>RESPONSE</th>
+					</tr>
+				</thead>
+				<tbody>
+					#foreach ($job in $jobs)
+						<tr>
+							<td><button type="button" class="btn btn-default btn-xs"
+									aria-label="Left Align" onclick="showDtls(this)">
+									<span class="glyphicon glyphicon-triangle-bottom"
+										aria-hidden="true"></span>
+								</button></td>
+							<td>${job.title.toUpperCase()}</td>
+							<td>${job.type}</td>
+							<td>${job.experience}</td>
+							<td>$job.location</td>
+							<td>${job.employer.username.toUpperCase()}</td>
+							<td>$job.postedOn</td>
+							<td>
+							#set ($active = "active")
+							#set ($inactive = "inactive")
+
+							#if ($job.status == $active)
+							<div class="status active"></div>
+							
+							#elseif ($job.status == $inactive)
+							  <div class="status inactive"></div>
+							  
+							#else
+								<div class="status deleted"></div>
+							#end
+							</td>
+							
+							#if($job.applicationCount)
+								<td>
+									<a href="employer_view_responses.htm?action=view&jobId=${job.id}"
+									class="btn btn-info btn-xs" role="button">$job.applicationCount</a>
+								</td>	
+							#else
+								<td>0</td>
+							#end
+								
+							#*<td>
+								<a href="employer_update_job.htm?jId=$job.id" class="btn btn-md btn-primary" role="button">Edit</a>
+								<a href="employer_delete_job.htm?jId=$job.id" class="btn btn-md btn-primary" role="button">Delete</a>
+							
+							</td>	*#
+							
+							<td>Open</td>
+							
+							#if ($job.status == 'active')
+							<td><a href="employer_update_job.htm?jId=$job.id"
+								class="btn btn-info btn-xs" role="button">Edit</a></td>
+								
+								#else
+									<td><a href="employer_update_job.htm?jId=$job.id"
+								class="btn btn-info btn-xs disabled" role="button">Edit</a></td>
+							#end
+						</tr>
+
+						<tr>
+							<td style="display: none;"></td>
+							<td colspan="7" style="display: none;">
+								<div class="row">
+								<div class="col-md-12"><h2>Job Title: ${job.title}</h2></div>
+
+									<div class="col-md-4">
+									<h3>Job Location:</h3>
+										${job.location}
+									</div>
+									
+									<div class="col-md-4">
+									<h3>Job Posted on Date:</h3>
+										${job.postedOn}
+										
+									</div>
+									
+									<div class="col-md-4">
+									<h3>Other details:</h3>
+									
+										<ul>
+										  <li>Job Experience : ${job.experience}</li>
+										  <li>Job Type : ${job.type}</li>
+										  <li>Job Status : ${job.status}</li>
+										 </ul>
+									</div>
+									
+									<div class="col-md-12">
+										<h3>Job Description:</h3>
+										${job.description}
+									</div>
+
+									<div class="col-md-4">
+									#if ($job.status == 'active')
+									<a href="employer_delete_job.htm?jId=$job.id"
+								class="btn btn-danger btn-xs" role="button" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+								#else
+								<a href="employer_delete_job.htm?jId=$job.id"
+								class="btn btn-danger btn-xs" role="button" disabled>Delete</a>
+								
+								#end
+									
+									</div>
+
+
+								</div>
+							</td>
+						</tr>
+					 #end
+
+
+				</tbody>
+			</table>
+		</div>
+
+
+
+			</div>
+	<!-- /container -->
+
+
+</body>
+</html>

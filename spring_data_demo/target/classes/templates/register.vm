@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register User Form</title>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/javascript"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+     
+
+$("document").ready(function() {   /// have to wait till after the document loads to run these things
+$(".candidate").hide();
+
+    $("select").change(function(){
+        
+        var thisValue = $(this).val();
+        if (thisValue == "candidate")
+        $(".candidate").show();
+        if (thisValue == "employer")
+        $(".candidate").hide();
+    });
+});
+
+</script>
+
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="login.htm">Recruit.ed</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="login.htm">Register User</a></li>
+
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="./">Questions? Call us at
+								1-866-204-6764 <span class="sr-only">(current)</span>
+						</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+			<!--/.container-fluid -->
+		</nav>
+
+		<div class="row">
+
+			<div class="col-md-6">
+				<form action="$registration_url" modelAttribute="$registration" method="post">
+
+				Select your Role:
+				<div class="form-group">
+						<label for="role">Register as : </label>
+						<select class="form-control" id="role" class="chooseOption" name="role" style="width: 400px;" required>
+							<option value="employer">Employer</option>
+							<option value="candidate">Candidate</option>
+						</select>
+					</div> 
+				
+					<div class="input-group">
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+						<input  class="form-control" name="name"
+							placeholder="Your Name" size="100" >
+						
+					</div>
+
+					<div class="input-group">
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+						<input class="form-control" name="email"
+							placeholder="Email Address" size="100" >
+					</div>
+
+					<div class="input-group candidate">
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+						<input class="form-control" name="gpa"
+							placeholder="GPA" size="50">
+					</div>
+
+					<div class="input-group candidate">
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+						<input class="form-control" name="univName"
+							placeholder="University name" size="100" >
+					</div>
+					
+					<div class="input-group ">
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+						<input class="form-control" name="username"
+							placeholder="Username" size="100" >
+					</div>
+					
+					<div class="input-group">
+						<span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
+						<input type="password" name="password" class="form-control"
+							placeholder="Password" size="100" />
+					</div>
+
+					 <div class="input-group">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+						<input class="form-control" name="linkedInUrl"
+							placeholder="LinkedIn URL" size="100" >
+					</div> 
+
+					<div class="row">
+						<input type="submit" class="btn btn-info" value="Register">
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+

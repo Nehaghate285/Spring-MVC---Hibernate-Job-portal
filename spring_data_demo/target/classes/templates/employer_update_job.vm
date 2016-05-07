@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Employer - Post Job</title>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/javascript"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+</head>
+<body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Recruit.ed</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						##<li ><a href="listjobs.htm">List Jobs<span
+							##	class="badge">${jobs.size()}</span></a></li>
+							
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="./">Questions? Call us at
+								1-866-204-6764 <span class="sr-only">(current)</span>
+						</a></li>
+
+						<li>Welcome</li>
+
+						<li><a href="logout.htm" class="btn btn-info" role="button">Logout</a></li>
+
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+			<!--/.container-fluid -->
+		</nav>
+		<div class="row">
+			<form action="$employer_update_job_url"  method="post"
+				class="form-signin" modelAttribute="updateJob">
+				<input type="hidden" value="$updateJob.id" id="id"
+							name="id">
+				#springBind("updateJob.id")
+				<h2 class="form-signin-heading">Edit a Job</h2>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="title">Job Title</label>
+						<input  type="text" class="form-control" id="title"
+							name="title" value = "$updateJob.title" placeholder="Product Developer" style="width:400px" required/>
+						#springBind("updateJob.title")
+						#springShowErrors("<br>" "")<br>
+					</div>
+					
+					<div class="form-group">
+						<label for="description">Job Description</label>
+						<input type="text" class="form-control" id="description"
+							name="description" value="$updateJob.description"
+						placeholder="Product Developer who'd be responsible in developing the app right from Conception to Deployment" style="width:400px" required/>
+						#springBind("updateJob.description")
+						#springShowErrors("<br>" "")<br>
+					</div>
+					
+					<div class="form-group">
+						<label for="description">Experience</label>
+						<input type="number" class="form-control" id="experience" min="0" max="100"
+							name="experience" value="$updateJob.experience"
+						placeholder="2-10 Years" style="width:400px" required/>
+						#springBind("updateJob.experience")
+						#springShowErrors("<br>" "")<br>
+					</div>
+					
+					<div class="form-group">
+						<label for="jobType">Job Type</label>
+						<select class="form-control" id="jobType" name="jobType" style="width: 400px;" required>
+							<option value="Full Time">Full Time</option>
+							<option value="Part Time">Part Time</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="location">Location</label>
+						<input type="text" class="form-control" id="location"
+							name="location" value="$updateJob.location"
+						placeholder="Chicago, Massachussets" style="width:400px" required/>
+						#springBind("updateJob.location")
+						#springShowErrors("<br>" "")<br>
+					</div>
+					
+					<button class="btn btn-md btn-success" type="submit">Update Job</button>
+				</div>
+			</form>
+  <br>
+		</div>
+	</div>
+	<!-- /container -->
+
+
+</body>
+</html>
