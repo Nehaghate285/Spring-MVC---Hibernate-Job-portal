@@ -27,9 +27,13 @@ Enter variable name as "APIKEY" and value with your apikey.
 Go on the project's root folder, then type:
 
 	$ mvn spring-boot:run -Drun.arguments = "args1,args2"
-	args1 = Swagger yaml file location. For example "d:\\Userfiles\\nghate\\Desktop\\swg.yml"
-	args2 = This parameter should be true if you want to generate examples on the fly by callling the API with default values or set to false.
-	Your command will look like $ mvn spring-boot:run -Drun.arguments = "d:\\Userfiles\\nghate\\Desktop\\swg.yml, false"
+	
+ - args1 = Swagger yaml file location. For example "d:\\Userfiles\\nghate\\Desktop\\swg.yml".
+ - args2 = This parameter should be true if you want to generate examples on the fly by callling the API with default values or set to false.
+
+Your command will look like:
+
+	$ mvn spring-boot:run -Drun.arguments = "d:\\Userfiles\\nghate\\Desktop\\swg.yml, false"
 
 ### From Spring Tool Suite
 
@@ -89,7 +93,7 @@ A list of mustache variables are present in Documentation.java class.
 
 3 mustache files namely indexbody.mustache,model.mustache and api.mustache creates with index.html, model.html and {{api}}.html respectively.
 
-Quick start up for [Mustache.js](https://mustache.github.io/mustache.5.html).
+You can follow [Mustache.js](https://mustache.github.io/mustache.5.html) guide for tweaking the mustache files.
 
 In addition to changing the mustache files, one can customize the html files which are easy to customize , just in case you want to add some static content that your swagger file could not accommodate !
 
