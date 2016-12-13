@@ -88,12 +88,10 @@ All the response models are listed here with all of its elements.This informatio
 ## Mustache templates:
 
 When you want to make changes to the look and feel of the documentation portal mustache templates can be customized.
-
+You can follow [Mustache.js](https://mustache.github.io/mustache.5.html) guide for tweaking the mustache files.
 A list of mustache variables are present in Documentation.java class.
 
-3 mustache files namely indexbody.mustache,model.mustache and api.mustache creates with index.html, model.html and {{api}}.html respectively.
+Here, index.mustache creates index.html, model.mustache creates model.html and api.mustache creates {{api}}.html.
 
-You can follow [Mustache.js](https://mustache.github.io/mustache.5.html) guide for tweaking the mustache files.
-
-In addition to changing the mustache files, one can customize the html files which are easy to customize , just in case you want to add some static content that your swagger file could not accommodate !
+In addition to changing the mustache files, one can customize the html files , just in case you want to add some static content that your swagger file could not accommodate !
 
