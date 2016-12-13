@@ -1,7 +1,7 @@
 # Docu.Me - Documentation Portal Generator
 
-Docu.Me generates clean, easy-to-read, customize and use, searchable documentation portal for APIs from your Swagger specifications built with Java and designed with Bootstrap and Jquery.
-It is based on the current version of the [Open API specification](https://github.com/OAI/OpenAPI-Specification) formerly known as Swagger.
+Docu.Me generates clear,  searchable, easy-to-customize documentation portal for APIs from your Swagger specifications.
+Built with Java and designed with Bootstrap and Jquery,it is based on the current version of the [Open API specification](https://github.com/OAI/OpenAPI-Specification) formerly known as Swagger.
 You can create your own swagger.yaml file with [Swagger Editor](http://editor.swagger.io/#/)
 
 This repo contains the content and specifications for the [Amadeus Travel Innovation Sandbox](https://sandbox.amadeus.com).  
@@ -88,10 +88,8 @@ All the response models are listed here with all of its elements.This informatio
 ## Mustache templates:
 
 When you want to make changes to the look and feel of the documentation portal mustache templates can be customized.
-You can follow [Mustache.js](https://mustache.github.io/mustache.5.html) guide for tweaking the mustache files.
-A list of mustache variables are present in Documentation.java class.
-
-Here, index.mustache creates index.html, model.mustache creates model.html and api.mustache creates {{api}}.html.
-
-In addition to changing the mustache files, one can customize the html files , just in case you want to add some static content that your swagger file could not accommodate !
+* You can follow [Mustache.js](https://mustache.github.io/mustache.5.html) guide for tweaking the mustache files.
+* A list of mustache variables are present in Documentation.java class.
+* Here, index.mustache creates index.html, model.mustache creates model.html and api.mustache creates {{api}}.html.
+* In addition to changing the mustache files, one can customize the html files , just in case you want to add some static content that your swagger file could not accommodate !
 
