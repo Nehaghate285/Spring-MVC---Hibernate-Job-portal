@@ -55,7 +55,7 @@ Your command will look like:
 
 * The output folder produced in your project folder contains index.html file with navigation to different APIs and response models of the API documentation.
 
-### Customize it your way !
+### Customize it your way!
 
 There are 3 pages to focus on:
 
@@ -85,7 +85,7 @@ We can see 10 sections on this page.
 
 ### Response model documentation page
 
-All the response models are listed here with all of its elements.This information comes from [schemaObject](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schemaObject) mentioned in definitions object. Elements can be of type Array, String or Reference to another model.
+All the response models are listed here with all of their elements.This information comes from [schemaObject](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schemaObject) mentioned in definitions object. Elements can be of type Array, String or Reference to another model.
 
 ## Mustache templates:
 
@@ -94,3 +94,8 @@ When you want to make changes to the look and feel of the documentation portal m
 * A list of mustache variables are present in Documentation.java class.
 * Here, index.mustache creates index.html, model.mustache creates model.html and api.mustache creates {{api}}.html.
 * In addition to changing the mustache files, one can customize the html files , just in case you want to add some static content that your swagger file could not accommodate !
+
+### Limitations for generating examples:
+
+* Supports only API key authorization, can be worked on for OAuth authorization mechanism using swagger security tools.
+* Your documentation portal will be generated as expected but you cannot 'Get a live response' which needs to call your API.
