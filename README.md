@@ -1,14 +1,14 @@
 # Docu.Me - Documentation Portal Generator
 
 Docu.Me generates clear,  searchable, easy-to-customize documentation portal for APIs from your Swagger specifications.
-Built with Java and designed with Bootstrap and Jquery,it is based on the current version of the [Open API specification](https://github.com/OAI/OpenAPI-Specification) formerly known as Swagger.
-You can create your own swagger.yaml file with [Swagger Editor](http://editor.swagger.io/#/)
+Built with Java and designed with Bootstrap and Jquery, it is based on the current version of the [Open API specification](https://github.com/OAI/OpenAPI-Specification) formerly known as Swagger.
+You can create your own swagger.yaml file with [Swagger Editor](http://editor.swagger.io/#/).
 
 This repo contains the content and specifications for the [Amadeus Travel Innovation Sandbox](https://sandbox.amadeus.com).  
 
-This is a Spring boot project built with [Spring Tool Suite](https://spring.io/tools/sts/all) (STS) .
+This is a Spring boot project built with [Spring Tool Suite](https://spring.io/tools/sts/all) (STS).
 You can download/clone the repo and import it as an existing project into workspace in STS.
-It is a Maven project so has all required dependencies in the pom.xml.
+It is a Maven project so it has all required dependencies in the pom.xml.
 
 ### Prerequisites
 You need the following installed and available in your $PATH:
@@ -16,24 +16,25 @@ You need the following installed and available in your $PATH:
 * [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Apache maven 3.0.3 or greater](http://maven.apache.org/install.html)
 
-Simple [tutorial](https://www.mkyong.com/maven/how-to-install-maven-in-windows/) I followed, incase it helps !
+This is a simple [tutorial](https://www.mkyong.com/maven/how-to-install-maven-in-windows/) I followed to install them.
 
-## Set API key as environment variable.
+### Set API key as environment variable.
 You can follow this [tutorial](https://www.java.com/en/download/help/path.xml).
 Enter variable name as "APIKEY" and value with your apikey.
 
 ### From terminal
 
-Go on the project's root folder, then type:
+Go into the docuDemo folder :
 
-	$ mvn spring-boot:run -Drun.arguments = "args1,args2"
+	$ cd docu.me/docuDemo/
+	$ mvn spring-boot:run -Drun.arguments="args1,args2"
 	
- - args1 = Swagger yaml file location. For example "d:\\Userfiles\\nghate\\Desktop\\swg.yml".
+ - args1 = Swagger yaml file location. For example "path/swagger.yml".
  - args2 = This parameter should be true if you want to generate examples on the fly by callling the API with default values or set to false.
 
 Your command will look like:
 
-	$ mvn spring-boot:run -Drun.arguments = "d:\\Userfiles\\nghate\\Desktop\\swg.yml, false"
+	$ mvn spring-boot:run -Drun.arguments="path/swagger.yml,false"
 
 ### From Spring Tool Suite
 
@@ -92,4 +93,3 @@ When you want to make changes to the look and feel of the documentation portal m
 * A list of mustache variables are present in Documentation.java class.
 * Here, index.mustache creates index.html, model.mustache creates model.html and api.mustache creates {{api}}.html.
 * In addition to changing the mustache files, one can customize the html files , just in case you want to add some static content that your swagger file could not accommodate !
-
