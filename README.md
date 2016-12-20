@@ -13,7 +13,7 @@ It is a Maven project so it has all required dependencies in the pom.xml.
 ### Prerequisites
 You need the following installed and available in your $PATH:
 
-* [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Apache maven 3.0.3 or greater](http://maven.apache.org/install.html)
 
 This is a simple [tutorial](https://www.mkyong.com/maven/how-to-install-maven-in-windows/) I followed to install them.
@@ -22,6 +22,7 @@ This is a simple [tutorial](https://www.mkyong.com/maven/how-to-install-maven-in
 You can follow this [tutorial](https://www.java.com/en/download/help/path.xml).
 Enter variable name as "APIKEY" and value with your apikey.
 
+## Installation of Docu.me:
 ### From terminal
 
 Go into the docuDemo folder :
